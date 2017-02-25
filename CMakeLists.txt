@@ -5,7 +5,7 @@ cmake_host_system_information(RESULT BUILD_HOST QUERY FQDN)
 file(READ LICENSE LICENSETEXT)
 set(BUILD_USER $ENV{LOGNAME})
 
-find_package(wxWidgets COMPONENTS core base REQUIRED)
+find_package(wxWidgets COMPONENTS core base adv REQUIRED)
 include(${wxWidgets_USE_FILE})
 include_directories(include ${CMAKE_CURRENT_BINARY_DIR}/include)
 
