@@ -1,4 +1,23 @@
 ------------------------------------------------------------------------------
+    ATTENTION!  ATTENTION!  ATTENTION!  ATTENTION!  ATTENTION!  ATTENTION!
+------------------------------------------------------------------------------
+
+This is my own fork from the LisaEm upstream tarball (not from the git repo
+as it wouldn't build with it's own build script).
+
+It has a number of changes and may not work on non-Linux (or at all).
+
+You have been warned.
+
+The build instructions from the original readme are no longer relevant -
+the build script has only been retained (for now) for reference purposes.
+
+This tree should be built using cmake (at least version 3.0), and any issues
+with the cmakefiles should be fixed.
+
+ -- Chris (kuroneko)
+
+------------------------------------------------------------------------------
 Lisa Emulator Source Build README                    http://lisaem.sunder.net/
 ------------------------------------------------------------------------------
 
