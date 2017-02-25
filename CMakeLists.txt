@@ -104,3 +104,31 @@ add_executable(lisaem
 	)
 target_link_libraries(lisaem generator ${wxWidgets_LIBRARIES})
 target_include_directories(lisaem PRIVATE wxui)
+set(RESOURCE_FILES
+	resources/floppy0.png
+	resources/floppy1.png
+	resources/floppy2.png
+	resources/floppy3.png
+	resources/floppyN.png
+	resources/lisaface0.png
+	resources/lisaface1.png
+	resources/lisaface2.png
+	resources/lisaface3.png
+	resources/power_off.png
+	resources/power_on.png
+	resources/floppy_eject.wav
+	resources/floppy_insert_sound.wav
+	resources/floppy_motor1.wav
+	resources/floppy_motor2.wav
+	resources/lisa_power_switch01.wav
+	resources/lisa_power_switch02.wav
+	resources/poweroffclk.wav)
+set_target_properties(lisaem PROPERTIES
+	MACOSX_BUNDLE TRUE
+	MACOSX_FRAMEWORK_IDENTIFIER net.sunder.lisa.LisaEm
+	RESOURCE "${RESOURCE_FILES}")
+install(TARGETS lisaem lisadiskinfo lisafsh-tool
+	RUNTIME DESTINATION bin
+	RESOURCE DESTINATION share/lisaem)
+
+

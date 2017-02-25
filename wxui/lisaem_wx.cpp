@@ -1807,7 +1807,7 @@ bool LisaEmApp::OnInit()
 
 
     SetVendorName(_T("sunder.NET"));
-    SetAppName(_T("LisaEm"));
+    SetAppName(_T("lisaem"));
 	my_lisawin->repaintall = REPAINT_INVALID_WINDOW;
     my_lisaframe->Show(true);                // Light it up
 	my_lisawin->repaintall = REPAINT_INVALID_WINDOW;
