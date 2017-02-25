@@ -1369,9 +1369,6 @@ void LisaEmFrame::OnPasteToKeyboard(wxCommandEvent& WXUNUSED(event))
 LisaWin::LisaWin(wxWindow *parent)
         : wxScrolledWindow(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize,
                    wxRAISED_BORDER|wxVSCROLL|wxHSCROLL|wxWS_EX_PROCESS_IDLE
-#ifdef wxALWAYS_SHOW_SB
-|wxALWAYS_SHOW_SB
-#endif
 #ifdef wxMAXIMIZE
 |wxMAXIMIZE
 #endif
@@ -1415,8 +1412,7 @@ LisaWin::LisaWin(wxWindow *parent)
          SetMinSize(wxSize(720,384)); //IWINSIZE previously
          SetSize(wxSize(IWINSIZE));
          SetMaxSize(wxSize(ISKINSIZE));
-         SetScrollbars(ISKINSIZEX/100, ISKINSIZEY/100,  100,100,  0,0,  true);
-         EnableScrolling(true,true);
+	 SetVirtualSize(ISKINSIZEX, ISKINSIZEY);
 
          screen_origin_x=140;
          screen_origin_y=130;
