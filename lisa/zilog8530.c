@@ -179,47 +179,12 @@ void set_baud_rate(int port, uint32 baud);
 
 static inline void on_read_irq_handle(int port);
 
-/*
- * There's a clever way to reverse all the bits in an 8-bit word
- * W = abcdefgh;
- * W = (W & 0xf0)>>4 | (W & 0x0f)<<4  = efghabcd
- * W = (W & 0xcc)>>2 | (W & 0x33)<<2  = ghefcdab
- * W = (W & 0xaa)>>1 | (W & 0x55)<<1  = hgfedcba
-*/
-
-inline uint8 reversebit(uint8 c)
-{
-    c = (c & 0xf0)>>4 | (c & 0x0f)<<4;
-    c = (c & 0xcc)>>2 | (c & 0x33)<<2;
-    c = (c & 0xaa)>>1 | (c & 0x55)<<1;
-    return c;
-}
-
 inline uint8 BITREVERSE(uint8 d)
 {
-#ifdef  __POWERPC__
     return d;
-#else
-    return reversebit(d) & 0xff;
-#endif
 }
 
-#ifdef BYTES_HIGHFIRST
-  #define BITORD(x) (BITREVERSE(x))
-#else
-  #define BITORD(x) (x)
-#endif
-
-
-uint16 crc16(uint16 crc, uint8 data)
-{
-    crc=(SWAP16(crc))^(BITREVERSE(data));
-    crc^=(crc & 0x00f0)>>4;
-    crc^=(crc<<12);
-    return crc^(((crc & 0x00ff)<<4)<<1);
-}
-
-
+#define BITORD(x) (x)
 
 void scc_hardware_reset_port(int8 port)
 {
