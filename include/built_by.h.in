@@ -1,0 +1,2 @@
+#define BUILTBY "Compiled on __DATE__ by @BUILD_USER@@@BUILD_HOST@"
+#define LICENSE "Please see LICENSE file shipped with distribution"
